@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire avec validation</title>
+</head>
+<body>
+    <h2>Formulaire avec validation</h2>
+    <form id="myForm" action="#" method="post">
+        <label for="q1">Question 1: Quelle est la capitale de la France ?</label><br>
+        <input type="text" id="q1" name="q1" required><br>
+
+        <label for="q2">Question 2: Combien de continents y a-t-il sur Terre ?</label><br>
+        <input type="number" id="q2" name="q2" required><br>
+
+        <label for="q3">Question 3: Quelle est la couleur du ciel ?</label><br>
+        <input type="text" id="q3" name="q3" required><br>
+
+        <label for="q4">Question 4: Combien de jours y a-t-il dans une semaine ?</label><br>
+        <input type="number" id="q4" name="q4" required><br>
+
+        <button type="submit">Valider</button>
+    </form>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêche la soumission du formulaire par défaut
+
+            // Récupérer les réponses
+            var q1 = document.getElementById('q1').value;
+            var q2 = document.getElementById('q2').value;
+            var q3 = document.getElementById('q3').value;
+            var q4 = document.getElementById('q4').value;
+
+            // Valider les réponses
+            if (q1.toLowerCase() === 'paris' && q2 === '7' && q3.toLowerCase() === 'bleu' && q4 === '7') {
+                alert('Toutes les réponses sont correctes !');
+                // Vous pouvez également envoyer le formulaire à un serveur ici si nécessaire
+            } else {
+                alert('Au moins une réponse est incorrecte. Veuillez vérifier et essayer à nouveau.');
+            }
+        });
+    </script>
+</body>
+</html>
